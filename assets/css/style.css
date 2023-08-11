@@ -187,7 +187,7 @@ a {
 .header-description {
   color: #FFF;
   font-size: 20px;
-  margin-top: 40px;
+  margin-top: 60px;
   font-family: "AllianceNo2";
 
 }
@@ -431,11 +431,9 @@ a {
 .item_wrap .text {
   color: #011E41;
   font-size: 24px;
-  font-style: normal;
-  
   line-height: 40px;
   letter-spacing: 0.5px;
-
+  font-family: "AllianceNo2";
 }
 
 
@@ -446,6 +444,7 @@ a {
   
   line-height: 40px;
   letter-spacing: 0.5px;
+  font-family: "AllianceNo2";
 }
 
 .item_wrap .desc {
@@ -511,16 +510,17 @@ a {
 }
 
 
-.book-demo-section .book-demo-content {
+/* .book-demo-section .book-demo-content {
   display: flex;
   justify-content: space-between;
 
-}
+} */
 
 
 .book-demo-section .right-content h3 {
   color: #FFF;
   font-size: 56px;
+  margin-bottom: 40px;
 
 }
 
@@ -531,27 +531,31 @@ a {
 
 .book-demo-section .left-cotnent form {
   padding-bottom: 32px;
+  font-family: "AllianceNo2";
 }
 
 .book-demo-section .left-cotnent form label {
   color: #FFF;
   font-size: 14px;
   line-height: 18px;
-  
-  margin-top: 8px;
+  margin-top: 12px;
   margin-bottom: 8px;
+}
+.book-demo-section .left-cotnent form input::placeholder{
+  font-size: 12px;
 }
 
 .book-demo-section .left-cotnent form input,
 .book-demo-section .left-cotnent form select {
+  font-size: 12px;
   border-radius: 8px;
   display: flex;
-  padding: 16px;
+  padding: 8px;
   align-items: center;
   border: unset;
   display: flex;
   flex-direction: column;
-  gap: 16px
+  gap: 8px
 }
 
 .book-demo-section .left-cotnent form input:focus,
@@ -686,9 +690,7 @@ footer .link-list li a {
   text-transform: capitalize;
 
 }
- .social-media-wrapper{
-  gap:  16px
-}
+
 footer a:hover {
   color: #fff;
 }
@@ -720,9 +722,7 @@ footer a:hover {
     width: 200px;
     height: 34.948px;
   }
-   .social-media-wrapper li{
-    gap: 12px;
-  }
+
 }
 
 
