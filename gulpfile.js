@@ -1,39 +1,52 @@
 const gulp = require('gulp');
 const cleanCSS = require('gulp-clean-css');
+const rimraf = require('rimraf');
 const htmlmin = require('gulp-htmlmin');
-const uglify = require('gulp-uglify');
-const imagemin = require('gulp-imagemin');
-const del = require('del');
+const terser = require('gulp-terser');
+const copy = require('gulp-copy');
 
-function clean() {
-  return del(['./dist/**/*']);
-}
+// Define tasks using modern JavaScript syntax
+const cleanDist = (cb) => rimraf('dist', cb);
 
-function css() {
-  return gulp.src('./src/css/**/*.css')
-    .pipe(cleanCSS())
-    .pipe(gulp.dest('./dist/css'));
-}
-
-function html() {
-  return gulp.src('./src/*.html')
+const minifyHTML = () => {
+  return gulp.src('src/*.html')
     .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest('./dist'));
-}
+    .pipe(gulp.dest('dist'));
+};
 
-function js() {
-  return gulp.src('./src/js/**/*.js')
-    .pipe(uglify())
-    .pipe(gulp.dest('./dist/js'));
-}
+const minifyCSS = () => {
+  return gulp.src('src/assets/css/*.css')
+    .pipe(cleanCSS())
+    .pipe(gulp.dest('dist/assets/css'));
+};
 
-// function assets() {
-//   return gulp.src('./src/assets/**/*')
-//     .pipe(gulp.dest('./dist/assets'));
-// }
+const minifyJS = () => {
+  return gulp.src('src/assets/js/*.js')
+    .pipe(terser())
+    .pipe(gulp.dest('dist/assets/js'));
+};
 
-exports.default = gulp.series(
-  clean,
-  gulp.parallel(css, html,)
+const copyImages = () => {
+  return gulp.src('src/assets/images/**/*')
+    .pipe(copy('dist/assets', { prefix: 2 }));
+};
+
+const copyFonts = () => {
+  return gulp.src('src/assets/fonts/**/*')
+    .pipe(copy('dist/assets', { prefix: 2 }));
+};
+
+// Define the default task using gulp.series
+const defaultTask = gulp.series(
+  cleanDist,
+  gulp.parallel(minifyCSS, minifyHTML, minifyJS, copyImages, copyFonts)
 );
 
+// Export the tasks
+exports.cleanDist = cleanDist;
+exports.minifyHTML = minifyHTML;
+exports.minifyCSS = minifyCSS;
+exports.minifyJS = minifyJS;
+exports.copyImages = copyImages;
+exports.copyFonts = copyFonts;
+exports.default = defaultTask;
