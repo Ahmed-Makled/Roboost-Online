@@ -1,0 +1,30 @@
+{
+  "name": "roboost-online",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahmed-Makled/Roboost-Online.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ahmed-Makled/Roboost-Online/issues"
+  },
+  "homepage": "https://github.com/Ahmed-Makled/Roboost-Online#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "del": "^7.0.0"
+  }
+}
